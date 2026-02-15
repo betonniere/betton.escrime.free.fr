@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Fencing tournament management software</title>
+    {% include "header.html" %}
+  </head>
+
+  <body id="shadow" style="font-size: 100%;">
+    <div id="all">
+      <div id="back">
+
+        <header id="header">
+          {% block banner %}
+          {% endblock %}
+
+          {% block menu %}
+          {% endblock %}
+        </header>
+
+        <div id="contentarea">
+          {% block vignette %}
+          {% endblock %}
+
+          {% block page %}
+          {% endblock %}
+        </div>
+
+      </div>
+    </div>
+  </body>
+
+</html>

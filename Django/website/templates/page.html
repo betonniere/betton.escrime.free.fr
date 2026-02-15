@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load release_filters %}
+
+{# ---------------------------------------------------- #}
+{% block banner %}
+<div class="logoheader" style="background-image:url({% static 'images/logo.png' %})">
+  <h1 id="logo">
+    {{ current_language.title }}<span class="header1">
+      {{ current_language.subtitle }}</span>
+  </h1>
+
+  <div id="breadcrumbs">
+    <div class="mod-languages">
+      <ul class="lang-inline">
+
+        {% for language in languages %}
+        <li>
+          <a href="/fencing-tournament-software/{{ language.code }}/bellepoule">
+            <img src="{{ language.icon }}" alt="{{ language.name }}" title="{{ language.name }}"/></a>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="twitter">
+    <a href="https://twitter.com/Yannick_Le_Roux"><img src="/static/images/twitter.png"></a>
+  </div>
+</div>
+{% endblock %}
+
+{# ---------------------------------------------------- #}
+{% block menu %}
+<div id="menuwrapper" role="menubar">
+  <ul class="nav menu">
+    {% for page in book %}
+    <li><a href="{{ page.get_absolute_url }}" >{{ page.get_title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
+{# ---------------------------------------------------- #}
+{% block vignette %}
+<nav class="left1 leftbigger" id="nav">
+  <div class="moduletable">
+    <div class="custom"  >
+      {{ page.get_vignette|fix_release|safe }}
+    </div>
+  </div>
+</nav>
+{% endblock %}
+
+{# ---------------------------------------------------- #}
+{% block page %}
+<div id="wrapper2" >
+  <div id="main">
+  <article class="item-page">
+    {{ page.get_content|fix_release|safe }}
+  </article>
+  </div>
+</div>
+{% endblock %}
